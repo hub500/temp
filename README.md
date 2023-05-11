@@ -54,8 +54,10 @@ type OrderAddResp struct {
 	Amount      float64 `json:"amount"`              // 空投金额
 	Score       float64 `json:"score,omitempty"`     // 空投积分
 	FeeRate     uint64  `json:"fee_rate,omitempty"`  // 交易费率
+	Claimed     uint8   `json:"claimed,omitempty"`   // 是否已领取 1=已领取
 }
 
+// 正常结果
 {
    "code": "200",
    "data": {
@@ -66,17 +68,42 @@ type OrderAddResp struct {
    },
    "msg": "succ"
 }
+
+// 没有可领取金额 【"amount": 0】
+{
+    "code": "200",
+    "data": {
+        "transfer_fee": 0,
+        "amount": 0,
+        "fee_rate": 249
+    },
+    "msg": "succ"
+}
+
+// 已领取判断 【"claimed": 1】
+{
+    "code": "200",
+    "data": {
+        "transfer_fee": 0.000207,
+        "amount": 3358,
+        "score": 200,
+        "fee_rate": 34,
+        "claimed": 1
+    },
+    "msg": "succ"
+}
 ```
 
 
-3. 提交订单 领取空投【POST】
+3. 提交订单 领取空投【POST / FormData格式提交】
 
 http://18.143.188.255/api/order/create
 
-| 字段     | 类型   | 说明           | 示例值                                                       |
-| -------- | ------ | -------------- | ------------------------------------------------------------ |
-| receiver | string | 空投接受者钱包 | bc1pxaneaf3w4d27hl2y93fuft2xk6m4u3wc4rafevc6slgd7f5tq2dqyfgy06 |
-| feerate  | int    | 交易费率       | 120                                                          |
+| 字段     | 类型   | 说明               | 示例值                                                       |
+| -------- | ------ | ------------------ | ------------------------------------------------------------ |
+| receiver | string | 空投接受者钱包     | bc1pxaneaf3w4d27hl2y93fuft2xk6m4u3wc4rafevc6slgd7f5tq2dqyfgy06 |
+| feerate  | int    | 交易费率           | 120                                                          |
+| inviter  | string | 邀请人钱包【可选】 | bc1pxaneaf3w4d27hl2y93fuft2xk6m4u3wc4rafevc6slgd7f5tq2dqyfgy88 |
 
 
 ```
