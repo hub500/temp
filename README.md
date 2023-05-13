@@ -315,12 +315,12 @@ http://18.143.188.255/api/invite/create
 
 
 ```
-type OrderAddResp struct {
+type InviteResp struct {
 	OrderId     string  `json:"order_id,omitempty"`  // 订单号uuid
 	Collector   string  `json:"collector,omitempty"` // 收币钱包
 	TransferFee float64 `json:"transfer_fee"`        // 空投手续费
 	Amount      float64 `json:"amount"`              // 空投金额
-	Score       float64 `json:"score,omitempty"`     // 空投积分
+	ClaimAmt    float64 `json:"claim_amt"`           // 已领取金额
 	FeeRate     uint64  `json:"fee_rate,omitempty"`  // 交易费率
 }
 
@@ -332,6 +332,7 @@ type OrderAddResp struct {
         "collector": "tb1pjq8k9uq7445andr6ndw6vduz6wupxa57wngxquw9pzhem6fka5nssxn442",
         "transfer_fee": 0.00048,
         "amount": 8399,
+        "claim_amt": 0,
         "fee_rate": 120
     },
     "msg": "succ"
