@@ -1,5 +1,33 @@
 ## 接口文档
 
+
+测试账号助记词
+
+saddle false just round crunch soldier embrace trophy glad patrol help raise
+
+钱包1
+
+[86'] tb1p7ltuwf5jcsnay6f62hjdm0qnqc4mtexq4uwv4xz23y6ugd4tqafszfqe72
+
+[84'] tb1q6x0etcn4q299az2xyaq8khn3ta4a6plu7lsjaf 有btc
+
+钱包2 
+
+tb1p0rps2vkq2jlzrmsv6955jvm29r9k3qj4rpl04d7cceaw3v3quxusmk92sn
+
+钱包3
+
+tb1pqyxzd9gc4fkv7fwaul28ya9423auj06e08pzavk0hwlu3872rgjsv82u0g
+
+
+btc水龙头
+
+https://coinfaucet.eu/en/btc-testnet/
+
+We sent 0.01342153 bitcoins to address
+tb1q6x0etcn4q299az2xyaq8khn3ta4a6plu7lsjaf
+
+
 失败统一返回 code 和 msg 字段
 ```
 {
@@ -132,11 +160,16 @@ type OrderAddResp struct {
 
 4. 查看订单空投详情信息【GET】
 
+通过订单号来查询单个订单
+
 http://18.143.188.255/api/order/info?receiver=bc1pxaneaf3w4d27hl2y93fuft2xk6m4u3wc4rafevc6slgd7f5tq2dqyfgy06
+
+http://18.143.188.255/api/order/info?order_id=chfe9uddfihn079g4740
 
 | 字段     | 类型   | 说明           | 示例值                                                       |
 | -------- | ------ | -------------- | ------------------------------------------------------------ |
 | receiver | string | 空投接受者钱包 | bc1pxaneaf3w4d27hl2y93fuft2xk6m4u3wc4rafevc6slgd7f5tq2dqyfgy06 |
+| order_id | string | 订单号 | chfe9uddfihn079g4740 |
 
 
 ```
