@@ -180,4 +180,28 @@ type OrderResp struct {
 
 前端拼接后 浏览器新标签打开
 
+BTC主网
+
 https://blockstream.info/tx/{txn_hash}
+
+BTC测试链
+
+https://blockstream.info/testnet/tx/{txn_hash}
+
+
+5. 空投进度条
+
+http://18.143.188.255/api/order/progress
+
+```
+{
+    "code": "200",
+    "data": {
+        "claim": 0, // claim + pool 之和
+        "pool": 0, // 交易池中金额
+        "succ": 0, // 已成功空投金额
+        "total": 16800000 // 总空投金额
+    },
+    "msg": "succ"
+}
+```
